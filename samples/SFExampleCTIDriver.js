@@ -24,14 +24,14 @@
             ? void 0
             : o.EmbedSDK;
         n &&
-          (n.onConversationLoaded((e) => {
+          (n.conversation.onConversationLoaded((e) => {
             console.log("Conversation loaded:", e);
             const { liveWorkItemId: o, customer: n } = e;
             (this.conversationStartTimes[o] = new Date()),
               (this.callerNumbers[o] =
                 (null == n ? void 0 : n.phoneNumber) || "");
           }),
-          n.onStatusChange((e) => {
+          n.conversation.onStatusChange((e) => {
             console.log("Status update received:", e);
             const { liveWorkItemId: o, statusCode: n } = e;
             if (5 === n || 4 === n) {
